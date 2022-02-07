@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = "11"
 
 repositories {
     mavenCentral()
@@ -15,15 +15,25 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.projectlombok:lombok:1.18.22'
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     //thymeleaf
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
-    implementation group: 'javax.persistence', name: 'persistence-api', version: '1.0'
+
+    //jpa
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.6.3'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+    implementation 'org.hibernate:hibernate-entitymanager:5.6.5.Final'
+    annotationProcessor('org.projectlombok:lombok')
+
+    implementation 'org.springframework.boot:spring-boot-starter-mustache'
 }
 
 test {
     useJUnitPlatform()
 }
+targetCompatibility = JavaVersion.VERSION_11
