@@ -30,7 +30,6 @@ public class UserService {
         this.userDao = userDao;
         this.userProvider = userProvider;
         this.jwtService = jwtService;
-
     }
 
     // 회원가입(POST)
@@ -48,7 +47,15 @@ public class UserService {
         try {
             // 암호화: postUserReq에서 제공받은 비밀번호를 보안을 위해 암호화시켜 DB에 저장합니다.
             // ex) password123 -> dfhsjfkjdsnj4@!$!@chdsnjfwkenjfnsjfnjsd.fdsfaifsadjfjaf
-            salt = Math.round(new Date().getTime()*(Math.random()))+"123";
+            salt = Math.round(new Date().getTime()*(Math.random()))+"";
+            // salt 16자리 만들기.
+            if (salt.length() != 16){
+                int j = 1;
+                for (int i = salt.length() + 1; i <= 16; i++){
+                    salt = salt.concat(String.valueOf(j));
+                    j++;
+                }
+            }
             postUserReq.setSalt(salt);
             pwd = new AES128(salt).encrypt(postUserReq.getPassword()); // 암호화코드
             postUserReq.setPassword(pwd);
