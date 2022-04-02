@@ -13,25 +13,17 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.projectlombok:lombok:1.18.22'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-    //thymeleaf
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
-
-
-    //jpa
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.6.4'
-    runtimeOnly 'mysql:mysql-connector-java:8.0.28'
-    implementation 'org.hibernate:hibernate-entitymanager:5.6.5.Final'
-    annotationProcessor('org.projectlombok:lombok')
-
-    implementation 'org.springframework.boot:spring-boot-starter-mustache'
-
-    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation  group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
