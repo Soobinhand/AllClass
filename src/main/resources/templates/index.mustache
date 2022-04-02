@@ -1,8 +1,53 @@
 {{>layout/header}}
-<h1>메인 화면</h1>
-<div>
-    <form method="get" action="/category/1">
-        <input type="submit" placeholder="수능">
-    </form>
+<div class="col-8">
+    <div class="card" style="border: none">
+        <div class="row">
+            <div class="col-8">
+                <div class="card-body">
+                    <a href="/">
+                        <img src="/images/logo.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="col-8">
+    <div class="card">
+        <div class="row">
+            <div class="col-8">
+                {{#user}}
+                    <div class="card-body">
+                        <span id="user">{{name}}님 환영합니다.</span>
+                        <a href="/logout" role="button">로그아웃</a>
+                    </div>
+                {{/user}}
+                {{^user}}
+                <div class="card-body">
+                    <a href="/oauth2/authorization/google" role="button">로그인</a>
+                </div>
+                {{/user}}
+            </div>
+        </div>
+    </div>
+</div><br>
+{{#category}}
+<div class="col-8">
+    <a href="/{{categoryid}}" style="color: black">
+    <div class="card">
+        <div class="row">
+            <div class="col-8">
+                <div class="card-body">
+                    <h5 style="font-weight: bolder">{{categoryname}}</h5>
+                    <h6 class="card-text" style="color: gray">{{categoryname}} 관련된 게시판입니다.</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+</div>
+
+<br>
+
+{{/category}}
 {{>layout/footer}}

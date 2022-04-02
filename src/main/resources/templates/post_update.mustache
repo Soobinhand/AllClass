@@ -1,0 +1,74 @@
+{{>layout/header}}
+<div class="col-8">
+    <div class="card" style="border: none">
+        <div class="row">
+            <div class="col-8">
+                <div class="card-body">
+                    <a href="/">
+                        <img src="/images/logo.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#categoryid}}
+<div class="col-8">
+    <div class="card" style="border: none">
+        <div class="row">
+            <div class="col-8">
+                <div class="card-body">
+                    <h1>커리큘럼 수정하기</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#user}}
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <form>
+                <div class="form-group" hidden>
+                    <label for="title">글 번호</label>
+                    <input type="hidden" class="form-control" id="id" value="{{post.id}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" class="form-control" id="title" value="{{post.title}}">
+                </div>
+                <div class="form-group">
+                    <label for="author"> 작성자 </label>
+                    <input type="text" class="form-control" id="author" value="{{name}}" readonly>
+                </div>
+                <div class="form-group" hidden>
+                    <label for="email"> 카테고리 id </label>
+                    <input type="text" class="form-control" id="email" value="{{email}}" readonly>
+                </div>
+                <div class="form-group" hidden>
+                    <label for="pemail"> 카테고리 id </label>
+                    <input type="text" class="form-control" id="pemail" value="{{post.email}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="content"> 내용 </label>
+                    <textarea class="form-control" id="content">{{post.content}}</textarea>
+                </div>
+                <div class="form-group" hidden>
+                    <label for="categoryid"> 카테고리 id </label>
+                    <input type="text" class="form-control" id="categoryid" value="{{categoryid}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="categoryid"> 카테고리 이름 </label>
+                    <input type="text" class="form-control" id="categoryid" value="{{categoryname}}" readonly>
+                </div>
+            </form>
+            <a href="/{{categoryid}}" role="button" class="btn btn-secondary">취소</a>
+            <button type="button" class="btn btn-primary" id="btn-update">수정 완료</button>
+            <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        </div>
+    </div>
+{{/user}}
+{{^user}}
+    안녕~
+{{/user}}
+{{/categoryid}}
+{{>layout/footer}}

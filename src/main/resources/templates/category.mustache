@@ -1,0 +1,50 @@
+{{>layout/header}}
+<div class="col-8">
+    <div class="card" style="border: none">
+        <div class="row">
+            <div class="col-8">
+                <div class="card-body">
+                    <a href="/">
+                        <img src="/images/logo.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#categoryid}}
+<div class="col-8">
+    <div class="card" style="border: none">
+        <div class="row">
+            <div class="col-8">
+                <div class="card-body">
+                    <h1>{{categoryname}}</h1>
+                    <a href="/{{categoryid}}/post/save" role="button">커리큘럼 공유하기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<br>
+{{#post}}
+<p hidden>{{id}}</p>
+<div class="col-8">
+    <a href="/{{categoryid}}/post/update/{{id}}" style="color: black">
+        <div class="card">
+            <div class="row">
+                <div class="col-8">
+                    <div class="card-body">
+                        <h5 style="font-weight: bolder">{{title}}</h5>
+                        <h6 style="color: gray">{{author}}</h6>
+                        <h6 class="card-text" style="color: gray">{{modifiedDate}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<br>
+{{/post}}
+{{/categoryid}}
+{{>layout/footer}}
